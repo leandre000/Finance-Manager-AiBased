@@ -21,10 +21,19 @@ module.exports = {
     'import/order': [
       'error',
       {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling', 'index']
+        ],
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true }
       }
-    ]
+    ],
+    'import/no-unresolved': 'off', // TypeScript handles module resolution
+    'import/namespace': 'off',
+    'import/no-duplicates': 'warn'
   },
   ignorePatterns: ['dist', 'node_modules']
 };
