@@ -40,14 +40,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const response = await authService.login(email, password)
     setUser(response.user)
     localStorage.setItem('user', JSON.stringify(response.user))
-    localStorage.setItem('token', response.access_token)
+    localStorage.setItem('token', response.accessToken)
   }
 
   const register = async (email: string, fullName: string, password: string) => {
     const response = await authService.register(email, fullName, password)
     setUser(response.user)
     localStorage.setItem('user', JSON.stringify(response.user))
-    localStorage.setItem('token', response.access_token)
+    localStorage.setItem('token', response.accessToken)
   }
 
   const logout = () => {
