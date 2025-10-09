@@ -12,9 +12,10 @@ function App() {
           position="top-right"
           toastOptions={{
             duration: 3000,
+            className: 'dark:bg-gray-800 dark:text-white',
             style: {
-              background: '#fff',
-              color: '#363636',
+              background: 'var(--toast-bg, #fff)',
+              color: 'var(--toast-text, #363636)',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             },
             success: {
