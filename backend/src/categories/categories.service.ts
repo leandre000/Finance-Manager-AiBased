@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Category } from './entities/category.entity';
+import { Category, CategoryType } from './entities/category.entity';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 
@@ -79,7 +79,7 @@ export class CategoriesService {
     await this.categoryRepository.remove(category);
   }
 
-  async findByType(userId: string, type: 'income' | 'expense'): Promise<Category[]> {
+  async findByType(userId: string, type: CategoryType): Promise<Category[]> {
     return await this.categoryRepository.find({
       where: [
         { userId, type },
