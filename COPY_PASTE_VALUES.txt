@@ -1,0 +1,112 @@
+═══════════════════════════════════════════════════════════════
+🚀 RENDER DEPLOYMENT - COPY & PASTE VALUES
+═══════════════════════════════════════════════════════════════
+
+STEP 2: PostgreSQL Database Settings
+────────────────────────────────────────────────────────────────
+Name:     finance-manager-db
+Database: finance_manager
+User:     finance_user
+Region:   Oregon (US West)
+Plan:     Free
+
+STEP 3: Web Service Settings
+────────────────────────────────────────────────────────────────
+Name:           finance-manager-api
+Repository:     Finance-Manager-AiBased
+Root Directory: backend
+Region:         Oregon (US West)
+Plan:           Free
+
+Build Command (copy this):
+npm install && npm run build && npm run migration:run
+
+Start Command (copy this):
+npm run start:prod
+
+
+ENVIRONMENT VARIABLES (Add one by one in Render):
+────────────────────────────────────────────────────────────────
+
+Variable 1:
+Key:   NODE_ENV
+Value: production
+
+Variable 2:
+Key:   PORT
+Value: 3000
+
+Variable 3:
+Key:   DATABASE_URL
+Value: <PASTE YOUR INTERNAL DATABASE URL HERE>
+
+Variable 4:
+Key:   JWT_SECRET
+Value: finance-manager-secret-key-2025-change-in-production
+
+Variable 5:
+Key:   JWT_EXPIRATION
+Value: 7d
+
+Variable 6:
+Key:   FRONTEND_URL
+Value: https://frontend-lvqnp79qz-leandre000s-projects.vercel.app
+
+
+═══════════════════════════════════════════════════════════════
+📝 AFTER DEPLOYMENT COMPLETES:
+═══════════════════════════════════════════════════════════════
+
+1. COPY your Render backend URL (looks like):
+   https://finance-manager-api.onrender.com
+
+2. RUN these commands in PowerShell:
+
+   cd frontend
+   vercel env add VITE_API_BASE_URL production
+
+   When prompted, paste:
+   https://finance-manager-api.onrender.com
+   (replace with YOUR actual URL)
+
+   Then run:
+   vercel --prod
+
+3. TEST your app at:
+   https://frontend-lvqnp79qz-leandre000s-projects.vercel.app
+
+   Login with:
+   Email:    Iamshemaleandre@gmail.com
+   Password: shema@1050!
+
+
+═══════════════════════════════════════════════════════════════
+✅ SUCCESS INDICATORS:
+═══════════════════════════════════════════════════════════════
+
+✓ Render shows "Your service is live"
+✓ Frontend loads without errors
+✓ You can login with your credentials
+✓ Dashboard displays
+✓ You can create accounts and transactions
+✓ No "Connection Refused" errors in browser console
+
+
+═══════════════════════════════════════════════════════════════
+🆘 IF YOU NEED HELP:
+═══════════════════════════════════════════════════════════════
+
+Check Render Logs:
+→ Go to Render dashboard
+→ Click your service
+→ Click "Logs" tab
+
+Check Frontend Logs:
+→ In browser, press F12
+→ Go to "Console" tab
+→ Look for errors
+
+═══════════════════════════════════════════════════════════════
+Last Updated: October 9, 2025
+═══════════════════════════════════════════════════════════════
+

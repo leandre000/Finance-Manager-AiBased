@@ -1,0 +1,12 @@
+NODE_ENV=production
+
+PORT=3000
+
+DATABASE_URL=<PASTE_YOUR_INTERNAL_DATABASE_URL_HERE>
+
+JWT_SECRET=finance-manager-secret-key-2025-change-in-production
+
+JWT_EXPIRATION=7d
+
+FRONTEND_URL=https://frontend-lvqnp79qz-leandre000s-projects.vercel.app
+
