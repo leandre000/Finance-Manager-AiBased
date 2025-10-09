@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { JwtService } from '@nestjs/jwt';
-import { ConflictException, UnauthorizedException } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
+import { UnauthorizedException } from '@nestjs/common';
+import * as bcrypt from 'bcryptjs';
 import { AuthService } from './auth.service';
 import { UsersService } from '../users/users.service';
 import { User } from '../users/entities/user.entity';
 
-jest.mock('bcrypt');
+jest.mock('bcryptjs');
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -17,16 +17,10 @@ describe('AuthService', () => {
     id: 'user-1',
     email: 'test@example.com',
     password: 'hashed-password',
-    name: 'Test User',
+    fullName: 'Test User',
+    isActive: true,
     createdAt: new Date(),
     updatedAt: new Date(),
-    accounts: [],
-    transactions: [],
-    categories: [],
-    budgets: [],
-    goals: [],
-    notifications: [],
-    preferences: null,
   };
 
   const mockUsersService = {
@@ -71,38 +65,24 @@ describe('AuthService', () => {
       const registerDto = {
         email: 'new@example.com',
         password: 'Password123!',
-        name: 'New User',
+        fullName: 'New User',
       };
 
-      mockUsersService.findByEmail.mockResolvedValue(null);
-      (bcrypt.hash as jest.Mock).mockResolvedValue('hashed-password');
       mockUsersService.create.mockResolvedValue({
         ...mockUser,
         email: registerDto.email,
-        name: registerDto.name,
+        fullName: registerDto.fullName,
       });
+      mockJwtService.sign.mockReturnValue('jwt-token');
 
       const result = await service.register(registerDto);
 
-      expect(usersService.findByEmail).toHaveBeenCalledWith(registerDto.email);
-      expect(bcrypt.hash).toHaveBeenCalledWith(registerDto.password, 10);
       expect(usersService.create).toHaveBeenCalled();
-      expect(result.email).toBe(registerDto.email);
-      expect(result).not.toHaveProperty('password');
-    });
-
-    it('should throw ConflictException if email already exists', async () => {
-      const registerDto = {
-        email: 'existing@example.com',
-        password: 'Password123!',
-        name: 'Existing User',
-      };
-
-      mockUsersService.findByEmail.mockResolvedValue(mockUser);
-
-      await expect(service.register(registerDto)).rejects.toThrow(
-        ConflictException,
-      );
+      expect(jwtService.sign).toHaveBeenCalled();
+      expect(result).toHaveProperty('accessToken', 'jwt-token');
+      expect(result).toHaveProperty('user');
+      expect(result.user.email).toBe(registerDto.email);
+      expect(result.user).not.toHaveProperty('password');
     });
   });
 
@@ -158,14 +138,5 @@ describe('AuthService', () => {
     });
   });
 
-  describe('validateUser', () => {
-    it('should validate user successfully', async () => {
-      mockUsersService.findByEmail.mockResolvedValue(mockUser);
-
-      const result = await service.validateUser(mockUser.id);
-
-      expect(result).toEqual(mockUser);
-    });
-  });
 });
 

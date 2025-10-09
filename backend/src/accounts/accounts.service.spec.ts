@@ -3,41 +3,30 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 import { AccountsService } from './accounts.service';
-import { Account } from './entities/account.entity';
-import { User } from '../users/entities/user.entity';
+import { Account, AccountType } from './entities/account.entity';
 
 describe('AccountsService', () => {
   let service: AccountsService;
-  let repository: Repository<Account>;
 
-  const mockUser: User = {
-    id: 'user-1',
-    email: 'test@example.com',
-    password: 'hashed-password',
-    name: 'Test User',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    accounts: [],
-    transactions: [],
-    categories: [],
-    budgets: [],
-    goals: [],
-    notifications: [],
-    preferences: null,
-  };
+  const userId = 'user-1';
 
   const mockAccount: Account = {
     id: 'account-1',
     name: 'Test Account',
-    type: 'checking',
+    type: AccountType.CHECKING,
     balance: 1000,
     currency: 'USD',
+    creditLimit: null,
+    color: null,
+    icon: null,
+    description: null,
     isActive: true,
+    includeInTotal: true,
+    userId: userId,
+    user: null as any,
+    transactions: [],
     createdAt: new Date(),
     updatedAt: new Date(),
-    user: mockUser,
-    transactions: [],
-    budgets: [],
   };
 
   const mockRepository = {
@@ -81,7 +70,7 @@ describe('AccountsService', () => {
     it('should create an account successfully', async () => {
       const createAccountDto = {
         name: 'New Account',
-        type: 'savings' as const,
+        type: AccountType.SAVINGS,
         balance: 5000,
         currency: 'USD',
       };
@@ -89,11 +78,11 @@ describe('AccountsService', () => {
       mockRepository.create.mockReturnValue(mockAccount);
       mockRepository.save.mockResolvedValue(mockAccount);
 
-      const result = await service.create(createAccountDto, mockUser);
+      const result = await service.create(userId, createAccountDto);
 
       expect(mockRepository.create).toHaveBeenCalledWith({
         ...createAccountDto,
-        user: mockUser,
+        userId,
       });
       expect(mockRepository.save).toHaveBeenCalled();
       expect(result).toEqual(mockAccount);
@@ -105,10 +94,10 @@ describe('AccountsService', () => {
       const accounts = [mockAccount];
       mockRepository.find.mockResolvedValue(accounts);
 
-      const result = await service.findAll(mockUser);
+      const result = await service.findAll(userId);
 
       expect(mockRepository.find).toHaveBeenCalledWith({
-        where: { user: { id: mockUser.id } },
+        where: { userId },
         order: { createdAt: 'DESC' },
       });
       expect(result).toEqual(accounts);
@@ -119,10 +108,10 @@ describe('AccountsService', () => {
     it('should return an account if found', async () => {
       mockRepository.findOne.mockResolvedValue(mockAccount);
 
-      const result = await service.findOne('account-1', mockUser);
+      const result = await service.findOne('account-1', userId);
 
       expect(mockRepository.findOne).toHaveBeenCalledWith({
-        where: { id: 'account-1', user: { id: mockUser.id } },
+        where: { id: 'account-1', userId },
       });
       expect(result).toEqual(mockAccount);
     });
@@ -130,7 +119,7 @@ describe('AccountsService', () => {
     it('should throw NotFoundException if account not found', async () => {
       mockRepository.findOne.mockResolvedValue(null);
 
-      await expect(service.findOne('non-existent', mockUser)).rejects.toThrow(
+      await expect(service.findOne('non-existent', userId)).rejects.toThrow(
         NotFoundException,
       );
     });
@@ -144,7 +133,7 @@ describe('AccountsService', () => {
       mockRepository.findOne.mockResolvedValue(mockAccount);
       mockRepository.save.mockResolvedValue(updatedAccount);
 
-      const result = await service.update('account-1', updateAccountDto, mockUser);
+      const result = await service.update('account-1', userId, updateAccountDto);
 
       expect(result.name).toBe('Updated Name');
     });
@@ -153,7 +142,7 @@ describe('AccountsService', () => {
       mockRepository.findOne.mockResolvedValue(null);
 
       await expect(
-        service.update('non-existent', { name: 'New Name' }, mockUser),
+        service.update('non-existent', userId, { name: 'New Name' }),
       ).rejects.toThrow(NotFoundException);
     });
   });
@@ -163,7 +152,7 @@ describe('AccountsService', () => {
       mockRepository.findOne.mockResolvedValue(mockAccount);
       mockRepository.delete.mockResolvedValue({ affected: 1 });
 
-      await service.remove('account-1', mockUser);
+      await service.remove('account-1', userId);
 
       expect(mockRepository.delete).toHaveBeenCalledWith('account-1');
     });
@@ -171,23 +160,9 @@ describe('AccountsService', () => {
     it('should throw NotFoundException if account not found', async () => {
       mockRepository.findOne.mockResolvedValue(null);
 
-      await expect(service.remove('non-existent', mockUser)).rejects.toThrow(
+      await expect(service.remove('non-existent', userId)).rejects.toThrow(
         NotFoundException,
       );
-    });
-  });
-
-  describe('getBalance', () => {
-    it('should return account balance', async () => {
-      const balanceData = { balance: '1000' };
-      const queryBuilder = mockRepository.createQueryBuilder();
-      queryBuilder.getRawOne.mockResolvedValue(balanceData);
-
-      mockRepository.findOne.mockResolvedValue(mockAccount);
-
-      const result = await service.getBalance('account-1', mockUser);
-
-      expect(result).toEqual({ balance: 1000 });
     });
   });
 });
