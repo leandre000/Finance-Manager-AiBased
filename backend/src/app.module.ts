@@ -1,22 +1,22 @@
 import { Module } from '@nestjs/common';
 
-import { AccountsModule } from './accounts/accounts.module.js';
-import { AuthModule } from './auth/auth.module.js';
-import { BudgetsModule } from './budgets/budgets.module.js';
-import { CategoriesModule } from './categories/categories.module.js';
-import { ConfigModule } from './config/config.module.js';
-import { DashboardModule } from './dashboard/dashboard.module.js';
-import { DatabaseModule } from './database/database.module.js';
-import { GoalsModule } from './goals/goals.module.js';
-import { HealthModule } from './health/health.module.js';
-import { NotificationsModule } from './notifications/notifications.module.js';
-import { RecurringTransactionsModule } from './recurring-transactions/recurring-transactions.module.js';
-import { ReportsModule } from './reports/reports.module.js';
-import { SchedulerModule } from './scheduler/scheduler.module.js';
-import { SearchModule } from './search/search.module.js';
-import { TransactionsModule } from './transactions/transactions.module.js';
-import { UserPreferencesModule } from './user-preferences/user-preferences.module.js';
-import { UsersModule } from './users/users.module.js';
+import { AccountsModule } from './accounts/accounts.module';
+import { AuthModule } from './auth/auth.module';
+import { BudgetsModule } from './budgets/budgets.module';
+import { CategoriesModule } from './categories/categories.module';
+import { ConfigModule } from './config/config.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { DatabaseModule } from './database/database.module';
+import { GoalsModule } from './goals/goals.module';
+import { HealthModule } from './health/health.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { RecurringTransactionsModule } from './recurring-transactions/recurring-transactions.module';
+import { ReportsModule } from './reports/reports.module';
+import { SchedulerModule } from './scheduler/scheduler.module';
+import { SearchModule } from './search/search.module';
+import { TransactionsModule } from './transactions/transactions.module';
+import { UserPreferencesModule } from './user-preferences/user-preferences.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [

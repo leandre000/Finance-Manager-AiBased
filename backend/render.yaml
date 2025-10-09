@@ -4,8 +4,8 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: npm install --include=dev && npm run build
-    startCommand: chmod +x scripts/run-migrations.sh && ./scripts/run-migrations.sh
+    buildCommand: npm install && npm run build
+    startCommand: npm run migration:run && npm run start:prod
     healthCheckPath: /api
     envVars:
       - key: NODE_ENV

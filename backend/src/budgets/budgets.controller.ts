@@ -10,10 +10,10 @@ import {
   Request,
   Query
 } from '@nestjs/common';
-import { BudgetsService } from './budgets.service.js';
-import { CreateBudgetDto } from './dto/create-budget.dto.js';
-import { UpdateBudgetDto } from './dto/update-budget.dto.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
+import { BudgetsService } from './budgets.service';
+import { CreateBudgetDto } from './dto/create-budget.dto';
+import { UpdateBudgetDto } from './dto/update-budget.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('budgets')
 @UseGuards(JwtAuthGuard)

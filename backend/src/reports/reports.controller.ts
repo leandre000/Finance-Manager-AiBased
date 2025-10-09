@@ -5,8 +5,8 @@ import {
   UseGuards,
   Request
 } from '@nestjs/common';
-import { ReportsService } from './reports.service.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
+import { ReportsService } from './reports.service';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('reports')
 @UseGuards(JwtAuthGuard)

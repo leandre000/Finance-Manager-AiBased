@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserPreference } from './entities/user-preference.entity.js';
-import { UpdateUserPreferenceDto } from './dto/update-user-preference.dto.js';
+import { UserPreference } from './entities/user-preference.entity';
+import { UpdateUserPreferenceDto } from './dto/update-user-preference.dto';
 
 @Injectable()
 export class UserPreferencesService {

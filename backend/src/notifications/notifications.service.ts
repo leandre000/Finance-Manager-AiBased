@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, MoreThan } from 'typeorm';
-import { Notification, NotificationType, NotificationPriority } from './entities/notification.entity.js';
-import { Budget } from '../budgets/entities/budget.entity.js';
-import { Goal, GoalStatus } from '../goals/entities/goal.entity.js';
-import { Account } from '../accounts/entities/account.entity.js';
-import { RecurringTransaction, RecurringStatus } from '../recurring-transactions/entities/recurring-transaction.entity.js';
+import { Notification, NotificationType, NotificationPriority } from './entities/notification.entity';
+import { Budget } from '../budgets/entities/budget.entity';
+import { Goal, GoalStatus } from '../goals/entities/goal.entity';
+import { Account } from '../accounts/entities/account.entity';
+import { RecurringTransaction, RecurringStatus } from '../recurring-transactions/entities/recurring-transaction.entity';
 
 @Injectable()
 export class NotificationsService {

@@ -6,7 +6,7 @@ import {
   ManyToOne,
   JoinColumn
 } from 'typeorm';
-import { User } from '../../users/entities/user.entity.js';
+import { User } from '../../users/entities/user.entity';
 
 export enum NotificationType {
   BUDGET_ALERT = 'budget_alert',

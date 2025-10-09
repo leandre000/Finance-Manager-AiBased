@@ -1,5 +1,5 @@
 import { IsEnum, IsNotEmpty, IsString, IsNumber, IsOptional, IsUUID, IsDateString, IsArray, Min, Length } from 'class-validator';
-import { GoalStatus } from '../entities/goal.entity.js';
+import { GoalStatus } from '../entities/goal.entity';
 
 export class CreateGoalDto {
   @IsString()

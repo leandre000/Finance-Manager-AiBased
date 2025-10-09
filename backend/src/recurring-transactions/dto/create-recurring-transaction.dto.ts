@@ -1,6 +1,6 @@
 import { IsEnum, IsNotEmpty, IsString, IsNumber, IsOptional, IsUUID, IsDateString, IsArray, IsBoolean, Min, Length } from 'class-validator';
-import { TransactionType } from '../../transactions/entities/transaction.entity.js';
-import { RecurringFrequency } from '../entities/recurring-transaction.entity.js';
+import { TransactionType } from '../../transactions/entities/transaction.entity';
+import { RecurringFrequency } from '../entities/recurring-transaction.entity';
 
 export class CreateRecurringTransactionDto {
   @IsString()

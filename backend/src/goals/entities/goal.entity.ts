@@ -7,8 +7,8 @@ import {
   ManyToOne,
   JoinColumn
 } from 'typeorm';
-import { User } from '../../users/entities/user.entity.js';
-import { Account } from '../../accounts/entities/account.entity.js';
+import { User } from '../../users/entities/user.entity';
+import { Account } from '../../accounts/entities/account.entity';
 
 export enum GoalStatus {
   IN_PROGRESS = 'in_progress',

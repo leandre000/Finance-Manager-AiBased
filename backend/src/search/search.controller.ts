@@ -5,9 +5,9 @@ import {
   UseGuards,
   Request
 } from '@nestjs/common';
-import { SearchService, SearchFilters } from './search.service.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
-import { TransactionType } from '../transactions/entities/transaction.entity.js';
+import { SearchService, SearchFilters } from './search.service';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { TransactionType } from '../transactions/entities/transaction.entity';
 
 @Controller('search')
 @UseGuards(JwtAuthGuard)

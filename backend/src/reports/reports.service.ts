@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Between } from 'typeorm';
-import { Transaction, TransactionType } from '../transactions/entities/transaction.entity.js';
-import { Account } from '../accounts/entities/account.entity.js';
-import { Budget } from '../budgets/entities/budget.entity.js';
-import { Category } from '../categories/entities/category.entity.js';
+import { Transaction, TransactionType } from '../transactions/entities/transaction.entity';
+import { Account } from '../accounts/entities/account.entity';
+import { Budget } from '../budgets/entities/budget.entity';
+import { Category } from '../categories/entities/category.entity';
 
 @Injectable()
 export class ReportsService {

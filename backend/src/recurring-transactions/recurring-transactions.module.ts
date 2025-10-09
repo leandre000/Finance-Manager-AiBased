@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RecurringTransactionsService } from './recurring-transactions.service.js';
-import { RecurringTransactionsController } from './recurring-transactions.controller.js';
-import { RecurringTransaction } from './entities/recurring-transaction.entity.js';
-import { TransactionsModule } from '../transactions/transactions.module.js';
-import { AccountsModule } from '../accounts/accounts.module.js';
+import { RecurringTransactionsService } from './recurring-transactions.service';
+import { RecurringTransactionsController } from './recurring-transactions.controller';
+import { RecurringTransaction } from './entities/recurring-transaction.entity';
+import { TransactionsModule } from '../transactions/transactions.module';
+import { AccountsModule } from '../accounts/accounts.module';
 
 @Module({
   imports: [

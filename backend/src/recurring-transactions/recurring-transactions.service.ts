@@ -1,11 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThanOrEqual } from 'typeorm';
-import { RecurringTransaction, RecurringFrequency, RecurringStatus } from './entities/recurring-transaction.entity.js';
-import { CreateRecurringTransactionDto } from './dto/create-recurring-transaction.dto.js';
-import { UpdateRecurringTransactionDto } from './dto/update-recurring-transaction.dto.js';
-import { TransactionsService } from '../transactions/transactions.service.js';
-import { AccountsService } from '../accounts/accounts.service.js';
+import { RecurringTransaction, RecurringFrequency, RecurringStatus } from './entities/recurring-transaction.entity';
+import { CreateRecurringTransactionDto } from './dto/create-recurring-transaction.dto';
+import { UpdateRecurringTransactionDto } from './dto/update-recurring-transaction.dto';
+import { TransactionsService } from '../transactions/transactions.service';
+import { AccountsService } from '../accounts/accounts.service';
 
 @Injectable()
 export class RecurringTransactionsService {

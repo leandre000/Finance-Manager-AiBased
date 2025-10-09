@@ -7,8 +7,8 @@ import {
   ManyToOne,
   JoinColumn
 } from 'typeorm';
-import { User } from '../../users/entities/user.entity.js';
-import { Category } from '../../categories/entities/category.entity.js';
+import { User } from '../../users/entities/user.entity';
+import { Category } from '../../categories/entities/category.entity';
 
 export enum BudgetPeriod {
   WEEKLY = 'weekly',

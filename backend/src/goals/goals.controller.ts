@@ -10,11 +10,11 @@ import {
   Request,
   Query
 } from '@nestjs/common';
-import { GoalsService } from './goals.service.js';
-import { CreateGoalDto } from './dto/create-goal.dto.js';
-import { UpdateGoalDto } from './dto/update-goal.dto.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
-import { GoalStatus } from './entities/goal.entity.js';
+import { GoalsService } from './goals.service';
+import { CreateGoalDto } from './dto/create-goal.dto';
+import { UpdateGoalDto } from './dto/update-goal.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { GoalStatus } from './entities/goal.entity';
 
 @Controller('goals')
 @UseGuards(JwtAuthGuard)

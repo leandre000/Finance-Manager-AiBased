@@ -1,5 +1,5 @@
 import { IsEnum, IsNotEmpty, IsString, IsNumber, IsOptional, IsUUID, IsDateString, IsBoolean, Min, Length } from 'class-validator';
-import { BudgetPeriod } from '../entities/budget.entity.js';
+import { BudgetPeriod } from '../entities/budget.entity';
 
 export class CreateBudgetDto {
   @IsString()

@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { RecurringTransactionsService } from '../recurring-transactions/recurring-transactions.service.js';
-import { NotificationsService } from '../notifications/notifications.service.js';
+import { RecurringTransactionsService } from '../recurring-transactions/recurring-transactions.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class SchedulerService {

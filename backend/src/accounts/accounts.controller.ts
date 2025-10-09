@@ -9,10 +9,10 @@ import {
   UseGuards,
   Request
 } from '@nestjs/common';
-import { AccountsService } from './accounts.service.js';
-import { CreateAccountDto } from './dto/create-account.dto.js';
-import { UpdateAccountDto } from './dto/update-account.dto.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
+import { AccountsService } from './accounts.service';
+import { CreateAccountDto } from './dto/create-account.dto';
+import { UpdateAccountDto } from './dto/update-account.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('accounts')
 @UseGuards(JwtAuthGuard)

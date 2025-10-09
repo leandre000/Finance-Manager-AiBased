@@ -1,5 +1,5 @@
 import { IsEnum, IsNotEmpty, IsString, IsNumber, IsOptional, IsUUID, IsDateString, IsArray, IsBoolean, Min, Length } from 'class-validator';
-import { TransactionType } from '../entities/transaction.entity.js';
+import { TransactionType } from '../entities/transaction.entity';
 
 export class CreateTransactionDto {
   @IsEnum(TransactionType)

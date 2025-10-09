@@ -10,11 +10,11 @@ import {
   Request,
   Query
 } from '@nestjs/common';
-import { RecurringTransactionsService } from './recurring-transactions.service.js';
-import { CreateRecurringTransactionDto } from './dto/create-recurring-transaction.dto.js';
-import { UpdateRecurringTransactionDto } from './dto/update-recurring-transaction.dto.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
-import { RecurringStatus } from './entities/recurring-transaction.entity.js';
+import { RecurringTransactionsService } from './recurring-transactions.service';
+import { CreateRecurringTransactionDto } from './dto/create-recurring-transaction.dto';
+import { UpdateRecurringTransactionDto } from './dto/update-recurring-transaction.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RecurringStatus } from './entities/recurring-transaction.entity';
 
 @Controller('recurring-transactions')
 @UseGuards(JwtAuthGuard)

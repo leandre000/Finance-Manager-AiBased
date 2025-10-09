@@ -8,9 +8,9 @@ import {
   Post,
   Param
 } from '@nestjs/common';
-import { UserPreferencesService } from './user-preferences.service.js';
-import { UpdateUserPreferenceDto } from './dto/update-user-preference.dto.js';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
+import { UserPreferencesService } from './user-preferences.service';
+import { UpdateUserPreferenceDto } from './dto/update-user-preference.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('user-preferences')
 @UseGuards(JwtAuthGuard)
