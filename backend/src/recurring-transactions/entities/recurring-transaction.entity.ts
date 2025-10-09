@@ -115,7 +115,7 @@ export class RecurringTransaction {
   @JoinColumn({ name: 'accountId' })
   account!: Account;
 
-  @Column('uuid', nullable: true)
+  @Column('uuid', { nullable: true })
   categoryId!: string | null;
 
   @ManyToOne(() => Category, { onDelete: 'SET NULL' })
