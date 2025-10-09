@@ -4,9 +4,9 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npm run build && npm run migration:run
     startCommand: npm run start:prod
-    healthCheckPath: /
+    healthCheckPath: /api
     envVars:
       - key: NODE_ENV
         value: production
