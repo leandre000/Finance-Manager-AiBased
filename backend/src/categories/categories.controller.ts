@@ -13,6 +13,7 @@ import {
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { CategoryType } from './entities/category.entity';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('categories')
@@ -26,9 +27,9 @@ export class CategoriesController {
   }
 
   @Get()
-  findAll(@Request() req: any, @Query('type') type?: 'income' | 'expense') {
+  findAll(@Request() req: any, @Query('type') type?: string) {
     if (type) {
-      return this.categoriesService.findByType(req.user.userId, type);
+      return this.categoriesService.findByType(req.user.userId, type as CategoryType);
     }
     return this.categoriesService.findAll(req.user.userId);
   }
