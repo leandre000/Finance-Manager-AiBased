@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import { 
   Wallet, 
   TrendingUp, 
   TrendingDown, 
-  DollarSign,
-  ArrowUpRight,
-  ArrowDownRight,
   Activity
 } from 'lucide-react'
 import * as dashboardService from '../../services/dashboard.service'

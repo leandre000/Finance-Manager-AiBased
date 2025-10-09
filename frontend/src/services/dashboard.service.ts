@@ -1,5 +1,5 @@
 import api from '../lib/api'
-import { DashboardOverview, CashFlowData, CategorySpending, FinancialHealth } from '../types'
+import { DashboardOverview, CashFlowData, FinancialHealth } from '../types'
 
 export const getOverview = async (): Promise<DashboardOverview> => {
   const response = await api.get('/dashboard/overview')
