@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
+// Public Pages
+import LandingPage from '../pages/LandingPage'
+
 // Layouts
 import AuthLayout from '../components/layouts/AuthLayout'
 import DashboardLayout from '../components/layouts/DashboardLayout'
@@ -36,7 +39,13 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      {/* Public Routes */}
+      {/* Landing Page */}
+      <Route 
+        path="/" 
+        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingPage />} 
+      />
+
+      {/* Public Auth Routes */}
       <Route element={<AuthLayout />}>
         <Route 
           path="/login" 
@@ -65,9 +74,8 @@ const AppRoutes = () => {
         <Route path="/settings" element={<SettingsPage />} />
       </Route>
 
-      {/* Default redirect */}
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      {/* Fallback redirect */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
