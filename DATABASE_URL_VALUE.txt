@@ -1,0 +1,66 @@
+╔══════════════════════════════════════════════════════════════╗
+║           DATABASE_URL VALUE - COPY AND PASTE                ║
+╚══════════════════════════════════════════════════════════════╝
+
+🔒 CONFIDENTIAL - DO NOT SHARE PUBLICLY
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COPY THIS EXACT VALUE:
+━━━━━━━━━━━━━━━━━━━━━━
+
+postgresql://finance_user:1tDohCx2REl9JwPTqHrZJnvI3F08b9W4@dpg-d3jq37vdiees73cnvcqg-a/finance_manager_hyxj
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHERE TO PASTE:
+━━━━━━━━━━━━━━━
+
+1. Go to: https://dashboard.render.com
+2. Click: "finance-manager-api"
+3. Click: "Environment" (left sidebar)
+4. Find: "DATABASE_URL"
+5. Click: "Edit" button
+6. Paste: The URL above
+7. Click: "Save Changes"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BREAKDOWN:
+━━━━━━━━━━
+
+Protocol:  postgresql://
+Username:  finance_user
+Password:  1tDohCx2REl9JwPTqHrZJnvI3F08b9W4
+Hostname:  dpg-d3jq37vdiees73cnvcqg-a
+Database:  finance_manager_hyxj
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  IMPORTANT SECURITY NOTES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ This URL is set in Render's environment (secure)
+✓ NOT hardcoded in your code (good practice)
+✓ NOT pushed to GitHub (prevents credential leak)
+✓ Only stored in Render's encrypted environment
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ AFTER SETTING THIS:
+━━━━━━━━━━━━━━━━━━━━━
+
+Your backend will automatically:
+  • Connect to PostgreSQL database
+  • Run all migrations
+  • Create all tables
+  • Seed default data
+  • Create admin user
+  • Start API on port 3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️  DEPLOYMENT TIME: ~5 minutes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
