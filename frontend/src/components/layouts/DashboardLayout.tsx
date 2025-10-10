@@ -7,7 +7,7 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
 
@@ -25,7 +25,7 @@ const DashboardLayout = () => {
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/50 dark:bg-black/70 z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
