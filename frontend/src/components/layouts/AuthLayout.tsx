@@ -4,12 +4,12 @@ import { TrendingUp } from 'lucide-react'
 
 const AuthLayout = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-purple-50 flex">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 flex">
       {/* Left Side - Branding */}
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-600 to-purple-600 p-12 flex-col justify-between relative overflow-hidden"
+        className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-600 to-purple-600 dark:from-primary-700 dark:to-purple-800 p-12 flex-col justify-between relative overflow-hidden"
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
